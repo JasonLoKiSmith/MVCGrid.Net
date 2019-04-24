@@ -78,7 +78,7 @@ namespace MVCGrid.Models
         /// <summary>
         /// Template for formatting cell value
         /// </summary>
-        public string ValueTemplate { get; set; }
+        public Func<T1, string> ValueTemplate { get; set; }
 
         /// <summary>
         /// This is how to specify the contents of the current cell. If this contains HTML, set HTMLEncode to false

@@ -337,6 +337,12 @@ var MVCGrid = new function () {
     };
 
     // public
+    this.getTotalItems = function (mvcGridName) {
+        var clientJson = getClientData(mvcGridName);
+        return clientJson.totalItems;
+    };
+
+    // public
     this.setPage = function (mvcGridName, pageNumber) {
 
         var gridDef = findGridDef(mvcGridName);

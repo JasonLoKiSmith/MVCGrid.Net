@@ -35,6 +35,8 @@ namespace MVCGrid.Web
             sb.Append(",");
             sb.AppendFormat("\"pageNumber\": {0}", gridContext.QueryOptions.PageIndex.HasValue ? (gridContext.QueryOptions.PageIndex + 1).ToString() : "\"\"");
             sb.Append(",");
+            sb.AppendFormat("\"totalItems\": {0}", gridContext.QueryOptions.TotalItems.HasValue ? (gridContext.QueryOptions.TotalItems).ToString() : "\"\"");
+            sb.Append(",");
 
             sb.Append("\"columnVisibility\": {");
             sb.Append(GenerateClientJsonVisibility(gridContext));
@@ -51,7 +53,6 @@ namespace MVCGrid.Web
             sb.Append("\"additionalQueryOptions\": {");
             sb.Append(GenerateClientJsonAdditional(gridContext));
             sb.Append("}");
-
 
 
             sb.Append("}");

@@ -166,8 +166,8 @@ namespace MVCGrid.Models
                     {
                         thisCell.HtmlText = col.ValueExpression(item, context);
                     }
-                    
-                    if (!String.IsNullOrWhiteSpace(col.ValueTemplate))
+
+                    if (col.ValueTemplate != null && !String.IsNullOrWhiteSpace(col.ValueTemplate.Invoke(item)))
                     {
                         var templateModel = new TemplateModel()
                         {
@@ -178,7 +178,7 @@ namespace MVCGrid.Models
                             Value = thisCell.HtmlText
                         };
 
-                        thisCell.HtmlText = templatingEngine.Process(col.ValueTemplate, templateModel);
+                        thisCell.HtmlText = templatingEngine.Process(col.ValueTemplate.Invoke(item), templateModel);
                     }
 
                     if (col.HtmlEncode)

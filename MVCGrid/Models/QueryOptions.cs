@@ -47,6 +47,7 @@ namespace MVCGrid.Models
 
         public int? PageIndex { get; set; }
         public int? ItemsPerPage { get; set; }
+        public int? TotalItems { get; set; }
 
         public int? GetLimitOffset()
         {

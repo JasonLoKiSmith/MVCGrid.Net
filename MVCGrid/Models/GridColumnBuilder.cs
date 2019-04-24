@@ -204,21 +204,19 @@ namespace MVCGrid.Models
             return this;
         }
 
-
-
         /// <summary>
         /// Template for formatting cell value
         /// </summary>
-        public GridColumnBuilder<T1> WithValueTemplate(string template)
+        public GridColumnBuilder<T1> WithValueTemplate(Func<T1,string> templateSelector)
         {
-            GridColumn.ValueTemplate = template;
+            GridColumn.ValueTemplate = templateSelector;
             return this;
         }
 
         /// <summary>
         /// Template for formatting cell value
         /// </summary>
-        public GridColumnBuilder<T1> WithValueTemplate(string template, bool htmlEncode)
+        public GridColumnBuilder<T1> WithValueTemplate(Func<T1, string> template, bool htmlEncode)
         {
             GridColumn.ValueTemplate = template;
             GridColumn.HtmlEncode = htmlEncode;
