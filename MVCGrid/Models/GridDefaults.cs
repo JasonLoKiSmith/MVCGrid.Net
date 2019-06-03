@@ -38,6 +38,8 @@ namespace MVCGrid.Models
             AllowChangingPageSize = false;
             MaxItemsPerPage = null;
             AuthorizationType = Models.AuthorizationType.AllowAnonymous;
+            OnExceptionDelegate = null;
+
 
             RenderingEngines = new ProviderSettingsCollection();
             RenderingEngines.Add(new ProviderSettings("BootstrapRenderingEngine", "MVCGrid.Rendering.BootstrapRenderingEngine, MVCGrid"));
@@ -62,6 +64,9 @@ namespace MVCGrid.Models
         public string ClientSideLoadingMessageFunctionName { get; set; }
         public string ClientSideLoadingCompleteFunctionName { get; set; }
         public bool Filtering { get; set; }
+
+        public Action<Exception> OnExceptionDelegate { get; set; }
+
 
         [Obsolete("RenderingEngine is obsolete. Please user RenderingEngines and DefaultRenderingEngineName")]
         public Type RenderingEngine {

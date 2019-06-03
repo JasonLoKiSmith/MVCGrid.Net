@@ -62,7 +62,7 @@ namespace MVCGrid.Web
                     }
                 }
             }
-            
+
             _table.Add(name, mapping);
 
         }
@@ -90,6 +90,12 @@ namespace MVCGrid.Web
 
         }
 
-
+        public static void Remove<T1>(string name)
+        {
+            if (_table.ContainsKey(name))
+            {
+                _table.Remove(name);
+            }
+        }
     }
 }

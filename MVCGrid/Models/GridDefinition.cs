@@ -56,7 +56,7 @@ namespace MVCGrid.Models
             this.AllowChangingPageSize = gridDefaults.AllowChangingPageSize;
             this.MaxItemsPerPage = gridDefaults.MaxItemsPerPage;
             this.AuthorizationType = gridDefaults.AuthorizationType;
-
+            this.OnExceptionDelegate = gridDefaults.OnExceptionDelegate;
             this.RenderingEngines = gridDefaults.RenderingEngines;
             this.DefaultRenderingEngineName = gridDefaults.DefaultRenderingEngineName;
         }
@@ -353,6 +353,8 @@ namespace MVCGrid.Models
         /// Indicated the authorization type. Anonymous access is the default.
         /// </summary>
         public AuthorizationType AuthorizationType { get; set; }
+
+        public Action<Exception> OnExceptionDelegate { get; set; }
 
         public ProviderSettingsCollection RenderingEngines { get; set; }
         public string DefaultRenderingEngineName { get; set; }

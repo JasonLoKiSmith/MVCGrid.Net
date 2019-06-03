@@ -28,7 +28,7 @@ namespace MVCGridExample
                 .AddColumns(cols =>
                 {
                     cols.Add("Id").WithValueExpression((p, c) => c.UrlHelper.Action("detail", "demo", new { id = p.Id }))
-                        .WithValueTemplate(x =>"<a href='{Value}'>{Model.Id}</a>", false)
+                        .WithValueTemplate(x => "<a href='{Value}'>{Model.Id}</a>", false)
                         .WithPlainTextValueExpression(p => p.Id.ToString());
                     cols.Add("FirstName").WithHeaderText("First Name")
                         .WithVisibility(true, true)
@@ -37,7 +37,7 @@ namespace MVCGridExample
                         .WithVisibility(true, true)
                         .WithValueExpression(p => p.LastName);
                     cols.Add("FullName").WithHeaderText("Full Name")
-                        .WithValueTemplate(z => "{Model.FirstName} {Model.LastName}")
+                        .WithValueTemplate(x => "{Model.FirstName} {Model.LastName}")
                         .WithVisibility(visible: false, allowChangeVisibility: true)
                         .WithSorting(false);
                     cols.Add("StartDate").WithHeaderText("Start Date")
@@ -697,7 +697,7 @@ namespace MVCGridExample
                         .WithSorting(false)
                         .WithHeaderText(" ")
                         .WithValueExpression((p, c) => c.UrlHelper.Action("detail", "demo", new { id = p.Id }))
-                        .WithValueTemplate(x =>"<a href='{Value}' class='btn btn-danger' role='button'>Delete</a>");
+                        .WithValueTemplate(x => "<a href='{Value}' class='btn btn-danger' role='button'>Delete</a>");
                     cols.Add("Example").WithHtmlEncoding(false)
                         .WithSorting(false)
                         .WithHeaderText("Example")

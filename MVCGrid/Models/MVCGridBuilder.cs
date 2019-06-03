@@ -430,6 +430,12 @@ namespace MVCGrid.Models
             return this;
         }
 
+        public MVCGridBuilder<T1> WithOnException(Action<Exception> action)
+        {
+            GridDefinition.OnExceptionDelegate = action;
+            return this;
+        }
+
 
         /// <summary>
         /// Text to display on the "next" button.

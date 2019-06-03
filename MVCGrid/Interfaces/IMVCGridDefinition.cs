@@ -148,6 +148,8 @@ namespace MVCGrid.Interfaces
         /// </summary>
         AuthorizationType AuthorizationType { get; set; }
 
+        Action<Exception> OnExceptionDelegate { get; set; }
+
 
         /// <summary>
         /// The list of configured rendering engines availble for this grid

@@ -102,7 +102,7 @@ namespace MVCGrid.Web.Controllers
                         .WithSorting(false)
                         .WithHtmlEncoding(false)
                         .WithValueExpression((p, c) => p.Contact != null ? c.UrlHelper.Action("Edit", "Contact", new { id = p.Contact.Id }) : "")
-                        .WithValueTemplate("<a href='{Value}'>{Model.Contact.FullName}</a>").WithPlainTextValueExpression((p, c) => p.Contact != null ? p.Contact.FullName : "");
+                        .WithValueTemplate(x => "<a href='{Value}'>{Model.Contact.FullName}</a>").WithPlainTextValueExpression((p, c) => p.Contact != null ? p.Contact.FullName : "");
 
                     cols.Add("Delete")
                       .WithHtmlEncoding(false)
@@ -110,7 +110,7 @@ namespace MVCGrid.Web.Controllers
                       .WithFiltering(false)
                       .WithHeaderText("<input type='checkbox' id='chkselectall'>")
                       .WithValueExpression((p, c) => c.UrlHelper.Action("Save", "Country", new { area = "General", id = p.JobId }))
-                      .WithValueTemplate("<input type='checkbox' class='select' value='{Model.JobId}'>")
+                      .WithValueTemplate(x => "<input type='checkbox' class='select' value='{Model.JobId}'>")
                       .WithPlainTextValueExpression((p, c) => "");
                 })
                 .WithRetrieveDataMethod((context) =>

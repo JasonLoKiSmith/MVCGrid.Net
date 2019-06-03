@@ -123,7 +123,7 @@ namespace MVCGrid.Engine
                 gridContext.QueryOptions.TotalItems = totalRecords;
 
                 model.PagingModel.FirstRecord = (currentPageIndex * gridContext.QueryOptions.ItemsPerPage.Value) + 1;
-                if(model.PagingModel.FirstRecord > model.PagingModel.TotalRecords) 
+                if (model.PagingModel.FirstRecord > model.PagingModel.TotalRecords)
                 {
                     model.PagingModel.FirstRecord = model.PagingModel.TotalRecords;
                 }
@@ -196,7 +196,6 @@ namespace MVCGrid.Engine
                 catch (Exception ex)
                 {
                     bool showDetails = ConfigUtility.GetShowErrorDetailsSetting();
-
                     if (showDetails)
                     {
                         string detail = "<div class='alert alert-danger'>";
@@ -204,11 +203,13 @@ namespace MVCGrid.Engine
                         detail += "</div>";
 
                         preload = detail;
+
                     }
                     else
                     {
                         preload = grid.ErrorMessageHtml;
                     }
+                    grid.OnExceptionDelegate?.Invoke(ex);
                 }
             }
 
